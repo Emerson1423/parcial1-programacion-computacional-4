@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase Semana 5 </title>
+    <link rel="shortcut icon" href="Designer.jpeg">
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: scroll;
+            background-color: gainsboro;
+        }
+
+        header {
+            background: navajowhite;
+            color: black;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            max-width: 150px;
+            margin-left: 20px;
+        }
+        .header-text {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .info {
+            font-size: 14px;
+            text-align: right;
+            margin-right: 20px;
+        }
+
+    footer {
+        background-color: #333;
+        margin-top: 10px;
+        color: #fff;
+        padding: 15px;
+        font-size: 14px;
+        position: static;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between; /* Distribuye elementos */
+        align-items: center; /* Centra verticalmente */
+        /* Ajusta el texto */
+    }
+
+
+    .footer-content {
+        flex: 1; /* Hace que el contenido ocupe el espacio disponible */
+    }
+
+    .footer-nav {
+        margin-top: 0px;
+    }
+
+    .footer-nav a {
+        color: #bbb;
+        text-decoration: none;
+        margin: 0 1px;
+        transition: color 0.3s ease;
+    }
+
+    .footer-nav a:hover {
+        color: #fff;
+    }
+
+    footer img {
+        width: 150px;
+        border-radius: 45%;
+        margin-right: 50px; /* Empuja la imagen a la derecha */
+    } 
+
+    /* Estilos generales para los divs */
+ 
+
+    .div3{
+        margin-top: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .div4{
+
+        text-align: center;
+        line-height: 50px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+
+    
+        /* Estilos específicos para div4 (mousedown y mouseup) */
+        .div4 {
+            background-color: #28a745;
+            color: white;
+            border: 2px solid #1e7e34;
+        }
+
+        .div4:active {
+            background-color: #1ec5e5;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    
+
+    <header>
+        <img src="log-removebg-preview.png" alt="Logo Universidad" class="logo">
+        <div class="header-text">Universidad Gerardo Barrios</div>
+        <div class="info">
+            <p>Carrera: Ingeniería en Sistemas y redes informatica</p>
+            <p>Código de Estudiante: SMSS141223</p>
+        </div>
+    </header>
+
+    <div class="div3" onmouseover="mOver(this)" onmouseout="mOut(this)"> quieres saber acerca de turismo pon el mouse ensima y averigualo
+    </div>
+    <br>
+
+
+
+    <lugares-turisticos>
+
+    </lugares-turisticos>
+
+    <imagenes-lugares></imagenes-lugares>
+
+    <br>
+
+    <div class="div4" onmousedown="mDown(this)" onmouseup="mUp(this)">percionar si quieres saber un dato acerca de el turismo </div>
+
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2025 Todos los derechos reservados.</p>
+        <nav class="footer-nav">
+            <a href="#">Política de privacidad</a>
+            <a href="#">Términos de uso</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <p>&copy; Creado por: Emerson Aldahir Portillo Segovia</p>
+    </div>
+    <img src="Designer.jpeg">
+</footer>
+
+    
+</body>
+<script>
+    
+
+    function mOver(obj) {
+            obj.innerHTML = "  El turismo en El Salvador incluye parques nacionales, volcanes, ruinas arqueológicas, museos, y rutas turísticas.  "
+        }
+
+        function mOut(obj) {
+        obj.innerHTML = "quieres saber acerca de turismo pon el mouse ensima y averigualo"
+        }
+
+        function mDown(obj) {
+            obj.style.backgroundColor = "#1ec5e5";
+            obj.innerHTML = "El turismo en El Salvador ha experimentado un auge en los últimos años, posicionándose como un destino destacado en la región";
+        }
+
+        function mUp(obj) {
+            obj.style.backgroundColor="#D94A38";
+            obj.innerHTML="percionar si quieres saber un dato acerca de el turismo";
+        }
+
+
+    class MiTabla extends HTMLElement{
+    constructor(){
+        super();
+    }
+    connectedCallback(){
+        this.innerHTML=`
+        <style>
+           /* Estilos generales para la tabla */
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                font-size: 18px;
+                text-align: left;
+                background-color: #f8f9fa;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Estilos para las celdas y encabezados */
+            th, td {
+                padding: 12px;
+                border: 1px solid #333;
+            }
+
+            /* Estilos para los encabezados de la tabla */
+            th {
+                background-color: #007bff;
+                color: white;
+                text-transform: uppercase;
+            }
+
+            /* Estilos para las filas alternas */
+            tbody tr:nth-child(even) {
+                background-color: #e9ecef;
+            }
+
+            /* Efecto hover para las filas */
+            tbody tr:hover {
+                background-color: #d6d8db;
+                transition: background-color 0.3s;
+            }
+
+        </style>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>lugares turisticos </th>
+                    <th>departemento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>Playa El Tunco</td>
+                <td>la libertad</td> 
+                </tr>
+                <tr>
+                <td>Playa El Sunzal</td>
+                <td>la libertad</td> 
+                </tr>
+                <tr>
+                <td>Volcán de Santa Ana</td>
+                <td>Santa Ana</td> 
+                </tr>
+                <tr>
+                <td>Volcán de Izalco</td>
+                <td>Santa Ana</td> 
+                </tr>
+                <tr>
+                <td>Parque Nacional Cerro Verde</td>
+                <td>San Salvador</td> 
+                </tr>
+                <tr>
+                <td>Parque Nacional El Boquerón</td>
+                <td>Santa Ana</td> 
+                </tr>
+            </tbody>
+        </table>`;
+        }
+}
+customElements.define("lugares-turisticos",MiTabla);
+
+class imagens extends HTMLElement {
+    constructor(){
+        super();
+    }
+    connectedCallback(){
+
+        this.innerHTML=`
+        <style>
+         /* Estilo para el contenedor principal */
+            .contenedor {
+                pading: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                max-width: 650px;
+                margin: auto;
+            }
+
+            /* Estilo para los contenedores de las imágenes */
+            .imagen {
+                width: 200px;
+                height: 200px;
+                border: 2px solid #333;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                border-radius: 10px;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Estilo para las imágenes dentro del contenedor */
+            .imagen img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Asegura que la imagen cubra el contenedor sin deformarse */
+                border-radius: 8px;
+            }
+
+
+        </style>
+        
+        <div class="contenedor">
+           <div class="imagen">
+            <img src="1.jpg" >
+        </div>
+
+        <div class="imagen">
+            <img src="2.jpg" >
+        </div>
+
+        <div class="imagen">
+            <img src="3.jpg" alt="">
+        </div>
+        
+        <div class="imagen">
+            <img src="4.jpg" alt="">
+        </div>
+        
+        <div class="imagen">
+            <img src="5.jpg" alt="">
+        </div>
+        
+        <div class="imagen">
+            <img src="6.jpg" alt="">
+        </div>
+
+        </div>
+        
+        
+
+        `;
+        
+    }
+
+}
+customElements.define("imagenes-lugares", imagens);
+
+
+</script>
+</html>
