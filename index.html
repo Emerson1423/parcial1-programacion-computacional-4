@@ -185,86 +185,100 @@
             obj.innerHTML="percionar si quieres saber un dato acerca de el turismo";
         }
 
-
-    class MiTabla extends HTMLElement{
+   class MiTabla extends HTMLElement{
     constructor(){
         super();
     }
     connectedCallback(){
         this.innerHTML=`
-        <style>
-           /* Estilos generales para la tabla */
+          <style>
+       
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 18px;
+            text-align: left;
+            background-color: #f8f9fa;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            min-width: 400px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #333;
+        }
+
+  
+        th {
+            background-color: #007bff;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        /* Estilos para las filas alternas */
+        tbody tr:nth-child(even) {
+            background-color: #e9ecef;
+        }
+
+        /* Efecto hover para las filas */
+        tbody tr:hover {
+            background-color: #d6d8db;
+            transition: background-color 0.3s;
+        }
+
+        @media screen and (max-width: 600px) {
             table {
-                width: 100%;
-                border-collapse: collapse;
-                margin: 20px 0;
-                font-size: 18px;
-                text-align: left;
-                background-color: #f8f9fa;
-                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+                font-size: 16px;
             }
-
-            /* Estilos para las celdas y encabezados */
             th, td {
-                padding: 12px;
-                border: 1px solid #333;
+                padding: 10px;
             }
-
-            /* Estilos para los encabezados de la tabla */
-            th {
-                background-color: #007bff;
-                color: white;
-                text-transform: uppercase;
-            }
-
-            /* Estilos para las filas alternas */
-            tbody tr:nth-child(even) {
-                background-color: #e9ecef;
-            }
-
-            /* Efecto hover para las filas */
-            tbody tr:hover {
-                background-color: #d6d8db;
-                transition: background-color 0.3s;
-            }
-
-        </style>
-
+        }
+    </style>
+        
+    <div class="table-container">
         <table>
             <thead>
                 <tr>
-                    <th>lugares turisticos </th>
-                    <th>departemento</th>
+                    <th>Lugares Turísticos</th>
+                    <th>Departamento</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                <td>Playa El Tunco</td>
-                <td>la libertad</td> 
+                    <td>Playa El Tunco</td>
+                    <td>La Libertad</td> 
                 </tr>
                 <tr>
-                <td>Playa El Sunzal</td>
-                <td>la libertad</td> 
+                    <td>Playa El Sunzal</td>
+                    <td>La Libertad</td> 
                 </tr>
                 <tr>
-                <td>Volcán de Santa Ana</td>
-                <td>Santa Ana</td> 
+                    <td>Volcán de Santa Ana</td>
+                    <td>Santa Ana</td> 
                 </tr>
                 <tr>
-                <td>Volcán de Izalco</td>
-                <td>Santa Ana</td> 
+                    <td>Volcán de Izalco</td>
+                    <td>Santa Ana</td> 
                 </tr>
                 <tr>
-                <td>Parque Nacional Cerro Verde</td>
-                <td>San Salvador</td> 
+                    <td>Parque Nacional Cerro Verde</td>
+                    <td>San Salvador</td> 
                 </tr>
                 <tr>
-                <td>Parque Nacional El Boquerón</td>
-                <td>Santa Ana</td> 
+                    <td>Parque Nacional El Boquerón</td>
+                    <td>Santa Ana</td> 
                 </tr>
             </tbody>
-        </table>`;
-        }
+        </table>
+    </div>`;
+    }
 }
 customElements.define("lugares-turisticos",MiTabla);
 
